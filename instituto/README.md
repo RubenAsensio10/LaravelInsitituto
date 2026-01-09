@@ -29,3 +29,16 @@ Ejecuta docker Compose para levantar contenedores y ejecuta el script dev para v
 ````Bash
 "local": "docker compose up -d && concurrently \"npm run dev\" \"php artisan serve\" && concurrently \"php artisan serve --port=8003\" "
 ````
+
+## Sistema de Roles
+Este proyecto utiliza el paquete Spatie Laravel Permission para gestionar roles y permisos.
+
+### Roles disponibles:
+- **admin**: Administrador con acceso completo
+- **teacher**: Profesor con permisos de gestión
+- **student**: Estudiante con permisos básicos
+
+### Instalación de roles:
+````Bash
+php artisan db:seed
+````
