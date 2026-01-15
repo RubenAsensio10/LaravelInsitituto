@@ -6,15 +6,15 @@
   <div class="hero-overlay bg-opacity-60"></div>
   <div class="hero-content text-neutral-content text-center">
     <div class="max-w-lg">
-      <h1 class="mb-5 text-5xl font-bold italic text-orange-400">Aprendiendo<br>Laravel</h1>
+      <h1 class="mb-5 text-5xl font-bold italic text-orange-400">@lang('messages.learning_laravel')<br>Laravel</h1>
       <p class="mb-2 text-gray-300">
-        Aplicacion para aprender Laravel
+        {{ __('messages.app_description') }}
       </p>
       <div class="divider divider-neutral my-4"></div>
       <p class="mb-5 text-gray-400">
-        Registrate para acceder a las opciones
+        {{ __('messages.register_message') }}
       </p>
-      <a href="{{ route('login') }}" class="btn btn-primary">Login</a>
+      <a href="{{ route('login') }}" class="btn btn-primary">{{ __('messages.login') }}</a>
     </div>
   </div>
 </div>
