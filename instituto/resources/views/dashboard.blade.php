@@ -1,7 +1,6 @@
 <x-layouts.layout>
     <div class="p-8">
         
-        <!-- Badge del rol del usuario actual -->
         <div class="mb-6">
             <span class="text-gray-600">Tu rol: </span>
             @role('admin')
@@ -15,7 +14,6 @@
             @endrole
         </div>
 
-        <!-- Tarjeta CRUD Alumnos -->
         <div class="card w-72 bg-base-200 shadow-xl image-full">
             <figure>
                 <img src="{{ asset('images/ninos.png') }}" alt="CRUD Alumnos" />

@@ -1,44 +1,100 @@
-# Proyecto de instituto
-Esta es una practica para el modulo de servidor
-## Instalo breeze
-para instalar ejecuto el comando
-````Bash
-composer requiere "laravel/breeze"
-````
+# Instituto - Proyecto Laravel
 
-## Instalo Daisy
-Para la interfaz
-````Bash
-npm i -D daisyui@latest
-````
+Sistema de gestión para instituto desarrollado con Laravel 12.
 
-## Instalo Tailwind
-Para los estilos
-````Bash
-npm install -D tailwindcss@latest
-````
+## Requisitos
 
-## Instalo Concurrent
-Para ejecutar varios comandos a la vez
-````Bash
-npm install concurrenly
-````
+- PHP 8.2 o superior
+- Composer
+- Node.js y npm
+- MySQL
 
-## Uso currently para crear un script local
-Ejecuta docker Compose para levantar contenedores y ejecuta el script dev para vite
-````Bash
-"local": "docker compose up -d && concurrently \"npm run dev\" \"php artisan serve\" && concurrently \"php artisan serve --port=8003\" "
-````
+## Instalación
 
-## Sistema de Roles
-Este proyecto utiliza el paquete Spatie Laravel Permission para gestionar roles y permisos.
+1. Clonar el repositorio y entrar en la carpeta del proyecto
 
-### Roles disponibles:
-- **admin**: Administrador con acceso completo
-- **teacher**: Profesor con permisos de gestión
-- **student**: Estudiante con permisos básicos
+2. Instalar dependencias de PHP:
+```bash
+composer install
+```
 
-### Instalación de roles:
-````Bash
+3. Instalar dependencias de Node:
+```bash
+npm install
+```
+
+4. Copiar el archivo de configuración:
+```bash
+cp .env.example .env
+```
+
+5. Generar la clave de la aplicación:
+```bash
+php artisan key:generate
+```
+
+6. Configurar la base de datos en el archivo `.env` con tus credenciales
+
+7. Ejecutar las migraciones:
+```bash
+php artisan migrate
+```
+
+8. Ejecutar los seeders para crear usuarios de prueba:
+```bash
 php artisan db:seed
-````
+```
+
+9. Compilar los assets:
+```bash
+npm run build
+```
+
+## Ejecutar el proyecto
+
+Para desarrollo:
+```bash
+php artisan serve
+```
+
+La aplicación estará disponible en `http://localhost:8000`
+
+## Usuarios de prueba
+
+| Rol | Email | Contraseña |
+|-----|-------|------------|
+| Administrador | admin@instituto.com | password |
+| Profesor | profesor@instituto.com | password |
+| Estudiante | estudiante1@instituto.com | password |
+
+## Comandos artisan utilizados
+
+```bash
+# Crear proyecto
+composer create-project laravel/laravel instituto
+
+# Instalar Breeze para autenticación
+composer require laravel/breeze
+php artisan breeze:install blade
+
+# Instalar paquete de permisos y roles
+composer require spatie/laravel-permission
+php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
+
+# Migraciones
+php artisan migrate
+php artisan migrate:fresh
+
+# Seeders
+php artisan db:seed
+
+# Crear modelos y migraciones
+php artisan make:model Alumno -m
+
+# Limpiar caché
+php artisan config:clear
+php artisan cache:clear
+
+# Servidor de desarrollo
+php artisan serve
+```

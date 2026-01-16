@@ -12,38 +12,34 @@ class DatabaseSeeder extends Seeder
 {
     use WithoutModelEvents;
 
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
-        // 1. Crear roles básicos del sistema
+        // Roles
         Role::firstOrCreate(['name' => 'admin']);
         Role::firstOrCreate(['name' => 'teacher']);
         Role::firstOrCreate(['name' => 'student']);
 
-        // 2. Crear Usuario Administrador por defecto
+        // Admin
         $admin = User::firstOrCreate(
             ['email' => 'admin@instituto.com'],
             ['name' => 'Administrador', 'password' => Hash::make('password')]
         );
         $admin->assignRole('admin');
 
-        // 3. Crear Usuario Profesor de prueba
+        // Profesor
         $teacher = User::firstOrCreate(
             ['email' => 'profesor@instituto.com'],
             ['name' => 'Profesor', 'password' => Hash::make('password')]
         );
         $teacher->assignRole('teacher');
 
-        // 4. Crear Usuario Estudiante inicial
+        // Estudiantes
         $student = User::firstOrCreate(
             ['email' => 'estudiante1@instituto.com'],
             ['name' => 'Estudiante', 'password' => Hash::make('password')]
         );
         $student->assignRole('student');
 
-        // 5. Crear más estudiantes de prueba
         $student2 = User::firstOrCreate(
             ['email' => 'estudiante2@instituto.com'],
             ['name' => 'Estudiante 2', 'password' => Hash::make('password')]

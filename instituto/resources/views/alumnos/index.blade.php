@@ -1,18 +1,15 @@
 <x-layouts.layout>
     <div class="p-6">
         
-        <!-- Botones superiores -->
         <div class="flex gap-2 mb-6">
             <a href="{{ route('alumnos.create') }}" class="btn btn-success btn-sm">Crear alumno</a>
             <a href="{{ route('dashboard') }}" class="btn btn-warning btn-sm">Volver</a>
         </div>
 
-        <!-- Mensaje de exito -->
         @if(session('success'))
             <div class="alert alert-success mb-4">{{ session('success') }}</div>
         @endif
 
-        <!-- Tabla de alumnos -->
         <div class="overflow-x-auto bg-white rounded-lg shadow">
             <table class="table w-full">
                 <thead>
